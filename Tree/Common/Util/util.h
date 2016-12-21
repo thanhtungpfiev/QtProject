@@ -1,13 +1,13 @@
 #ifndef UTIL_H
 #define UTIL_H
 
-#include "util_global.h"
-
-class UTILSHARED_EXPORT Util
+class Util
 {
-
 public:
     Util();
+
+public:
+    static void test();
 };
 
 #endif // UTIL_H
