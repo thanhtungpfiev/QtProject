@@ -3,13 +3,18 @@ QT -= gui
 
 CONFIG += c++11
 
-TARGET = Console
+TARGET = Application
 CONFIG += console
 CONFIG -= app_bundle
 
 TEMPLATE = app
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    controller.cpp
+
+HEADERS += \
+    controller.h \
+    typedef.h
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked deprecated (the exact warnings
@@ -22,8 +27,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../Common/Util/release/ -lUtil
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../Common/Util/debug/ -lUtil
+LIBS += -LD:\Software\Boost\boost_1_62_0\lib64-msvc-14.0
 
-INCLUDEPATH += $$PWD/../Common/Util
-DEPENDPATH += $$PWD/../Common/Util
+INCLUDEPATH += D:\Software\Boost\boost_1_62_0
+DEPENDPATH += D:\Software\Boost\boost_1_62_0
+
+LIBS += -LD:\Software\Qt\QtProject\build-Logger-Desktop_Qt_5_7_1_MSVC2015_64bit-Debug\Util\debug -lUtil
+
+INCLUDEPATH += $$PWD\..\Util
+DEPENDPATH += $$PWD\..\Util
